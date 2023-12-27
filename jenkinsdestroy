@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage ('destroy ec2') {
             steps {
-                sh 'terraform destroy'
+                script {
+                    dir ('terraform'){}
+                    sh 'terraform destroy'
+                }
             }
         }
     }
