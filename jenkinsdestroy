@@ -1,0 +1,11 @@
+#!/usr/bin/env groovy
+pipeline {
+    agent {label slave1}
+    stages {
+        stage ('destroy ec2') {
+            steps {
+                sh 'terraform destroy'
+            }
+        }
+    }
+}
