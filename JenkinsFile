@@ -10,9 +10,10 @@ pipeline {
         stage ('create ec2 instance') {
             steps {
                 script {
-                    dir('terraform')
+                    dir('terraform') {
                     sh 'terraform init'
                     sh 'terraform apply --auto-approve'
+			}
                 }
             }
         }
